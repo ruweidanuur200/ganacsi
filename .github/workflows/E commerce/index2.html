@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>E-Commerce Website - Cart</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        /* Modal and layout styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            width: 90%;
+            max-width: 600px;
+        }
+
+        .modal-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .checkout-buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .checkout-buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .checkout-buttons button:first-child {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        .checkout-buttons button:last-child {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .cart-item, .checkout-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 10px;
+        }
+
+        .cart-item img, .checkout-item img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .cart-item h3, .checkout-item h3 {
+            margin: 0;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>E-Shop</h1>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="index2.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="cart-page">
+            <h2>Your Cart</h2>
+            <div class="cart-items" id="cart-items">
+                <!-- Cart items will be dynamically inserted here -->
+            </div>
+            <div class="total-price" id="total-price">
+                Total: $0
+            </div>
+            <button class="checkout-btn" onclick="openCheckout()">Proceed to Checkout</button>
+        </section>
+    </main>
+
+
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="modal">
+        <div class="modal-content">
+            <h2>Checkout</h2>
+            <div id="checkout-items">
+                <!-- Items for checkout will be displayed here -->
+            </div>
+            <div class="checkout-total" id="checkout-total">
+                Total: $0
+            </div>
+            <div class="checkout-buttons">
+                <button onclick="confirmPayment()">Pay</button>
+                <button onclick="closeCheckout()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-about">
+            <h3>🛒E-Shop</h3>
+            <p>Your one-stop shop for all your needs. Discover the best deals and a wide variety of products.</p>
+        </div>
+
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#categories"><i class="fas fa-th-large"></i> Categories</a></li>
+                <li><a href="#about"><i class="fas fa-info-circle"></i> About Us</a></li>
+                <li><a href="#contact"><i class="fas fa-phone-alt"></i> Contact Us</a></li>
+            </ul>
+        </div>
+        
+
+        <div class="footer-contact">
+            <h4>Contact Us</h4>
+            <ul>
+                <li><i class="fas fa-phone"></i> +1 234 567 890</li>
+                <li><i class="fas fa-envelope"></i> support@eshop.com</li>
+                <li><i class="fas fa-map-marker-alt"></i>🛒 E-Shop , Mogadisho, Somalia</li>
+            </ul>
+        </div>
+
+        <div class="footer-newsletter">
+            <h4>Subscribe to Our Newsletter</h4>
+            <p>Stay updated with the latest deals and offers.</p>
+            <form>
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 E-Shop. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
